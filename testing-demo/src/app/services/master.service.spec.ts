@@ -7,6 +7,14 @@ describe('MasterService', () => {
     let service: MasterService;
     let valueServiceSpy: jasmine.SpyObj<ValueService>;
 
+    // function setup() {
+    //     const valueServiceSpy = jasmine.createSpyObj('ValueService', ['getValue']);
+    //     const stubValue = 'stub value';
+    //     valueServiceSpy.getValue.and.returnValue(stubValue);
+    //     const masterService = new MasterService(valueServiceSpy);
+    //     return { masterService, valueServiceSpy, stubValue };
+    // }
+
     beforeEach(() => {
         const spy = jasmine.createSpyObj('ValueService', ['getValue']);
         TestBed.configureTestingModule({
@@ -17,13 +25,24 @@ describe('MasterService', () => {
     });
 
     it('should be created', () => {
-        // service = new MasterService(new ValueService());
+        service = new MasterService(new ValueService());
         expect(service).toBeTruthy();
+        // const masterService = setup().masterService;
+        // expect(masterService).toBeTruthy();
     });
+
     it('getValue() should return value from service', () => {
         valueServiceSpy.getValue.and.returnValue('value');
         expect(service.getValue()).toBe('value');
+        // const { masterService, stubValue } = setup();
+        // expect(masterService.getValue()).toBe(stubValue);
     });
+
+    // it('getValue() should return value from service', () => {
+    //     const { masterService, valueServiceSpy } = setup();
+    //     valueServiceSpy.getValue.and.returnValue('updated value');
+    //     expect(masterService.getValue()).toBe('updated value');
+    // });
 
     // it('getValue() should return `real value` from the real service', () => {
     //     service = new MasterService(new ValueService());
