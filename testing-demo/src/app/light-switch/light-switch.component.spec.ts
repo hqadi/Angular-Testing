@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { LightSwitchComponent } from './light-switch.component';
 
@@ -9,6 +10,7 @@ describe('LightSwitchComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [LightSwitchComponent],
+            imports: [FormsModule],
         })
             .compileComponents();
     });
@@ -35,5 +37,18 @@ describe('LightSwitchComponent', () => {
         expect(component.message).toEqual('The light is off');
         component.clicked();
         expect(component.message).toEqual('The light is on');
+    });
+
+    it('should convert name to title case', () => {
+        const nameInput: HTMLInputElement = fixture.nativeElement.querySelector('input');
+        const nameDisplay: HTMLElement = fixture.nativeElement.querySelector('div.text-success');
+        nameInput.value = 'new value';
+        // console.log('name:', component.name);
+        nameInput.dispatchEvent(new Event('input'));
+        // console.log('name:', component.name);
+        // console.log('displayed name:', nameDisplay?.textContent);
+        fixture.detectChanges();
+        // console.log('displayed name:', nameDisplay?.textContent);
+        expect(nameDisplay?.textContent).toEqual('New Value');
     });
 });

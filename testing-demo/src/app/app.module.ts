@@ -4,16 +4,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LightSwitchComponent } from './light-switch/light-switch.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { BannerComponent } from './banner/banner.component';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LightSwitchComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

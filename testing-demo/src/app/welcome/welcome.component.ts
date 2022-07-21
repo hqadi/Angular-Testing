@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,10 +10,14 @@ import { UserService } from '../services/user.service';
 export class WelcomeComponent implements OnInit {
     welcome = '';
 
-    constructor(private userService: UserService) { }
+    constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit(): void {
         this.welcome = this.userService.isLoggedIn
             ? `Welcome ${this.userService.user.name}!` : 'Please log in.'
+    }
+
+    goToLightSwitch(): void {
+        this.router.navigate(['light-switch']);
     }
 }

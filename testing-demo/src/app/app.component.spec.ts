@@ -1,18 +1,12 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { LightSwitchComponent } from './light-switch/light-switch.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [
-                AppComponent,
-                LightSwitchComponent,
-                WelcomeComponent,
-            ],
-            imports: [HttpClientTestingModule],
+            declarations: [AppComponent],
+            schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     });
 
@@ -35,3 +29,16 @@ describe('AppComponent', () => {
         expect(compiled.querySelector('#title')?.textContent).toContain('testing-demo app is running!');
     });
 });
+
+@Component({
+    selector: 'app-banner',
+    template: '',
+})
+export class BannerStubComponent {}
+
+@Component({
+    selector: 'router-outlet',
+    template: '',
+})
+export class RouterOutletStubComponent {}
+

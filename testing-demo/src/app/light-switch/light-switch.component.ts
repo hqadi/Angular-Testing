@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class LightSwitchComponent {
     isOn = false;
-
+    name = 'hala qadi';
     constructor() { }
 
     clicked(): void {

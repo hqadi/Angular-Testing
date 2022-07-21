@@ -2,3 +2,7 @@
     <button class="btn btn-primary me-3" (click)="clicked()">Toggle</button>
     {{ message }}
 </div>
+<div class="d-flex flex-column">
+    <input type="text" name="name" [(ngModel)]="name">
+    <div class="text-success">{{ name | titlecase }}</div>
+</div>
