@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
       second paragraph
     </p>
     <div id="main">main div</div>
+    <h2 appHighlight='skyblue'>Highlighted</h2>
   `,
     styles: ['h1 { color: green; font-size: 350% }']
 })

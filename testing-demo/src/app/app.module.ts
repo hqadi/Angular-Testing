@@ -7,13 +7,17 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { BannerComponent } from './banner/banner.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HighlightDirective } from './directives/highlight.directive';
+import { StringPipe } from './pipes/string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LightSwitchComponent,
     WelcomeComponent,
-    BannerComponent
+    BannerComponent,
+    HighlightDirective,
+    StringPipe
   ],
   imports: [
     BrowserModule,

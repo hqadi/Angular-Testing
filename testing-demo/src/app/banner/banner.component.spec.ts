@@ -1,6 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { HighlightDirective } from '../directives/highlight.directive';
 
 import { BannerComponent } from './banner.component';
 
@@ -11,7 +12,7 @@ describe('BannerComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [BannerComponent],
+            declarations: [BannerComponent, HighlightDirective],
             // providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
         })
             .compileComponents();
@@ -87,5 +88,11 @@ describe('BannerComponent', () => {
         const oldTitle = component.title;
         component.title = 'new Title';
         expect(h1?.textContent).toEqual(oldTitle);
+    });
+
+    it('should have skyblue h2', () => {
+        const h2: HTMLElement = fixture.nativeElement.querySelector('h2');
+        const bgColor = h2.style.backgroundColor;
+        expect(bgColor).toEqual('skyblue');
     });
 });
